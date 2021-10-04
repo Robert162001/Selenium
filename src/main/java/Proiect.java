@@ -1,12 +1,11 @@
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Proiect {
     static String browser;
     static WebDriver driver;
-    static WebElement butonReadMeUnu;
+    private SeleniumDevHomePage seleniumDevHomePage;
+    private ReadMePage readMePage;
 
     public static void main(String[] args) {
         setBrowser();
@@ -24,14 +23,18 @@ public class Proiect {
     }
 
     public static void RunTest() {
-        driver.get("homePageUrl");
-        butonReadMeUnu = driver.findElement(By.xpath("(//a[contains(@class, 'selenium-button') and contains(text(), 'Read more')])[1]"));
-        butonReadMeUnu.click();
-        try {
+        SeleniumDevHomePage seleniumDevHomePage = new SeleniumDevHomePage(driver);
+        ReadMePage readMePage= new ReadMePage(driver);
+        seleniumDevHomePage.navigateTo();
+       try {
             Thread.sleep(5000);
         } catch (Exception e) {
-            // just waiting a bit
-        }
+           // just waiting a bit
+       }
+        seleniumDevHomePage.clickOnReadMeButton(2);
+        readMePage.Scroll();
+
+
         driver.quit();
     }
 }

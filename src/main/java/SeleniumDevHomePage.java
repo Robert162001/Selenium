@@ -16,7 +16,6 @@ public class SeleniumDevHomePage {
         this.webDriver = webDriver;
     }
 
-
     public void clickOnReadMeButton(int whichButton) {
         if (whichButton > 3) {
             throw new IllegalArgumentException("Sunt doar 3 butoane ba");
@@ -24,4 +23,7 @@ public class SeleniumDevHomePage {
         webDriver.findElement(readMeButtons.get(whichButton)).click();
     }
 
+    public void navigateTo() {
+        webDriver.navigate().to(homePageUrl);
+    }
 }
