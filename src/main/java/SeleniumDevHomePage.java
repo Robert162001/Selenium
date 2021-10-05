@@ -10,7 +10,7 @@ public class SeleniumDevHomePage {
 
     //Page Locators
     private final String homePageUrl = "https://www.selenium.dev";
-    private final List<By> readMeButtons = Arrays.asList(By.xpath("(//a[contains(@class, 'selenium-button') and contains(text(), 'Read more')])"));
+    private final By readMeButtons = By.xpath("(//a[contains(@class, 'selenium-button') and contains(text(), 'Read more')])");
 
     public SeleniumDevHomePage(WebDriver webDriver) {
         this.webDriver = webDriver;
@@ -20,7 +20,7 @@ public class SeleniumDevHomePage {
         if (whichButton > 3) {
             throw new IllegalArgumentException("Sunt doar 3 butoane ba");
         }
-        webDriver.findElement(readMeButtons.get(whichButton)).click();
+        webDriver.findElements(readMeButtons).get(whichButton).click();
     }
 
     public void navigateTo() {
