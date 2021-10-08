@@ -8,8 +8,8 @@ public class ReadMePage {
         this.webDriver = webDriver;
     }
 
-    public void Scroll(){
-        JavascriptExecutor js=(JavascriptExecutor) webDriver;
-        js.executeScript("window.scrollBy(0, 1000)");
+    public void Scroll() {
+        JavascriptExecutor js = (JavascriptExecutor) webDriver;
+        js.executeScript("window.scrollBy(0, 4000)");
     }
 }

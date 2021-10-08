@@ -6,6 +6,7 @@ public class Proiect {
     static WebDriver driver;
     private SeleniumDevHomePage seleniumDevHomePage;
     private ReadMePage readMePage;
+    private DocumentationPage documentationPage;
 
     public static void main(String[] args) {
         setBrowser();
@@ -22,18 +23,32 @@ public class Proiect {
         driver = new ChromeDriver();
     }
 
+    public static void sleep() {
+        try {
+            Thread.sleep(3000);
+        } catch (Exception e) {
+            // just waiting a bit
+        }
+    }
+
     public static void RunTest() {
         SeleniumDevHomePage seleniumDevHomePage = new SeleniumDevHomePage(driver);
-        ReadMePage readMePage= new ReadMePage(driver);
-        seleniumDevHomePage.navigateTo();
-       try {
-            Thread.sleep(5000);
-        } catch (Exception e) {
-           // just waiting a bit
-       }
-        seleniumDevHomePage.clickOnReadMeButton(2);
-        readMePage.Scroll();
+        ReadMePage readMePage = new ReadMePage(driver);
+        DocumentationPage documentationPage = new DocumentationPage(driver);
 
+        driver.manage().window().maximize();
+        seleniumDevHomePage.navigateTo();
+        sleep();
+        seleniumDevHomePage.clickOnReadMeButton(1);
+        sleep();
+        readMePage.Scroll();
+        sleep();
+        seleniumDevHomePage.navigateTo();
+        sleep();
+        documentationPage.clickOndocButton();
+        sleep();
+        documentationPage.clickOnpythonButton();
+        sleep();
 
         driver.quit();
     }
