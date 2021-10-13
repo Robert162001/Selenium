@@ -1,14 +1,11 @@
+package utils;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
-public class ReadMePage {
-    private WebDriver webDriver;
+public class PageUtils {
 
-    public ReadMePage(WebDriver webDriver) {
-        this.webDriver = webDriver;
-    }
-
-    public void Scroll() {
+    public static void scrollPage(WebDriver webDriver) {
         JavascriptExecutor js = (JavascriptExecutor) webDriver;
         js.executeScript("window.scrollBy(0, 4000)");
     }

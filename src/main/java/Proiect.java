@@ -1,11 +1,14 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import po.DocumentationPage;
+import po.SeleniumDevHomePage;
+import po.SeleniumIde;
+import utils.PageUtils;
 
 public class Proiect {
     static String browser;
     static WebDriver driver;
     private SeleniumDevHomePage seleniumDevHomePage;
-    private ReadMePage readMePage;
     private DocumentationPage documentationPage;
 
     public static void main(String[] args) {
@@ -23,32 +26,16 @@ public class Proiect {
         driver = new ChromeDriver();
     }
 
-    public static void sleep() {
-        try {
-            Thread.sleep(3000);
-        } catch (Exception e) {
-            // just waiting a bit
-        }
-    }
-
     public static void RunTest() {
         SeleniumDevHomePage seleniumDevHomePage = new SeleniumDevHomePage(driver);
-        ReadMePage readMePage = new ReadMePage(driver);
-        DocumentationPage documentationPage = new DocumentationPage(driver);
 
         driver.manage().window().maximize();
         seleniumDevHomePage.navigateTo();
-        sleep();
-        seleniumDevHomePage.clickOnReadMeButton(1);
-        sleep();
-        readMePage.Scroll();
-        sleep();
+        SeleniumIde seleniumIde = seleniumDevHomePage.clickOnReadMeButton(1);
+        PageUtils.scrollPage(driver);
         seleniumDevHomePage.navigateTo();
-        sleep();
-        documentationPage.clickOndocButton();
-        sleep();
-        documentationPage.clickOnpythonButton();
-        sleep();
+        DocumentationPage documentationPage = seleniumDevHomePage.clickOnDocumentationLink();
+        documentationPage.clickOnPythonButton();
 
         driver.quit();
     }
