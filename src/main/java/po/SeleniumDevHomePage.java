@@ -9,9 +9,9 @@ public class SeleniumDevHomePage extends BasePage {
     private SeleniumIde seleniumIde;
 
     //Page Locators
-    private final By docButton = By.xpath("//a[contains(@href, '/documentation') and contains(@class, 'nav-link')]");
     private final String homePageUrl = "https://www.selenium.dev";
-    private final By readMeButtons = By.xpath("(//a[contains(@class, 'selenium-button') and contains(text(), 'Read more')])");
+    private final By readMeButtons = By.xpath("//a[contains(@class, 'selenium-button') and contains(text(), 'Read more')]");
+    private final By docButton = By.xpath("//a[contains(@href, '/documentation') and contains(@class, 'nav-link')]");
 
     public SeleniumDevHomePage(WebDriver webDriver) {
         this.webDriver = webDriver;
