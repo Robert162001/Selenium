@@ -6,6 +6,7 @@ public class Helpers {
 
     /**
      * Returns random int between min and max.
+     *
      * @param min - lower range
      * @param max - highest range
      * @return - random number between min and max

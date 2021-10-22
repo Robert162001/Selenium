@@ -12,7 +12,8 @@ public class BaseTest {
     protected SeleniumDevHomePage seleniumDevHomePage;
     protected DocumentationPage documentationPage;
     private WebDriver webDriver;
-    protected WebDriver getWebDriver(){
+
+    protected WebDriver getWebDriver() {
         return this.webDriver;
     }
 

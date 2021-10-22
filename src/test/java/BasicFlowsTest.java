@@ -1,7 +1,7 @@
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import po.DocumentationPage;
 
-import static po.DocumentationPage.Tabs.JAVA;
 import static po.DocumentationPage.Tabs.PYTHON;
 
 public class BasicFlowsTest extends BaseTest {
@@ -25,13 +25,20 @@ public class BasicFlowsTest extends BaseTest {
         seleniumDevHomePage.clickOnDocumentationLink();
         Assert.assertTrue(getWebDriver().getCurrentUrl().contains("documentation/"));
         Assert.assertTrue(getWebDriver().getTitle().contains(pageTitle));
-
     }
 
     @Test
     public void clickOnPythonTest() {
         seleniumDevHomePage.clickOnDocumentationLink();
-        documentationPage.clickOnPythonButton();
-        Assert.assertTrue(documentationPage.isButtonActive(PYTHON));
+        documentationPage.clickOnButtons(DocumentationPage.Tabs.PYTHON);
+        Assert.assertTrue(documentationPage.isTabActive(PYTHON));
     }
+
+    @Test
+    public void clickRandomTest() {
+        seleniumDevHomePage.clickOnDocumentationLink();
+        documentationPage.clickOnRandomTab();
+    }
+
+
 }
