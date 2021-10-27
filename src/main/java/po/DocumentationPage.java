@@ -1,6 +1,5 @@
 package po;
 
-import jdk.dynalink.linker.LinkerServices;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
