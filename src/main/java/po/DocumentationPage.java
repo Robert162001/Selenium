@@ -1,7 +1,11 @@
 package po;
 
+import jdk.dynalink.linker.LinkerServices;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static utils.Helpers.generateRandomNumber;
 
@@ -12,16 +16,30 @@ public class DocumentationPage extends BasePage {
         this.webDriver = webDriver;
     }
 
-    private final By javaButton = By.xpath("//a[contains(@id, 'tabs-1-0-tab')]");
-    private final By pythonButton = By.xpath("//a[contains(@id, 'tabs-1-1-tab')]");
-    private final By cSharpButton = By.xpath("//a[contains(@id, 'tabs-1-2-tab')]");
-    private final By rubyButton = By.xpath("//a[contains(@id, 'tabs-1-3-tab')]");
-    private final By javaScriptButton = By.xpath("//a[contains(@id, 'tabs-1-4-tab')]");
-    private final By kotlinButton = By.xpath("//a[contains(@id, 'tabs-1-5-tab')]");
+    private final By javaButton = locatorTab(0);
+    private final By pythonButton = locatorTab(1);
+    private final By cSharpButton = locatorTab(2);
+    private final By rubyButton = locatorTab(3);
+    private final By javaScriptButton = locatorTab(4);
+    private final By kotlinButton = locatorTab(5);
+    private int whichTabWasClicked;
+
+    List<Tabs> tabsList = new ArrayList<>() {{
+        add(Tabs.JAVA);
+        add(Tabs.PYTHON);
+        add(Tabs.CSHARP);
+        add(Tabs.RUBY);
+        add(Tabs.JAVASCRIPT);
+        add(Tabs.KOTLIN);
+    }};
 
 
     public enum Tabs {
         JAVA, PYTHON, CSHARP, RUBY, JAVASCRIPT, KOTLIN
+    }
+
+    public By locatorTab(int tabNumber) {
+        return By.xpath("//a[@id='tabs-1-" + tabNumber + "-tab']");
     }
 
     public boolean isTabActive(Tabs tab) {
@@ -82,11 +100,11 @@ public class DocumentationPage extends BasePage {
     }
 
     public void clickOnRandomTab() {
-        int clickTab = generateRandomNumber(0, 5);
-        webDriver.findElement(locatorTab(clickTab)).click();
+        whichTabWasClicked = generateRandomNumber(0, 5);
+        webDriver.findElement(locatorTab(whichTabWasClicked)).click();
     }
 
-    public By locatorTab(int tabNumber) {
-        return By.xpath("//a[@id='tabs-1-" + tabNumber + "-tab']");
+    public Tabs getWhichTabWasClicked() {
+        return tabsList.get(whichTabWasClicked);
     }
 }
