@@ -106,4 +106,5 @@ public class DocumentationPage extends BasePage {
     public Tabs getWhichTabWasClicked() {
         return tabsList.get(whichTabWasClicked);
     }
+
 }

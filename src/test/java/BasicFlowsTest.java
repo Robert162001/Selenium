@@ -37,7 +37,23 @@ public class BasicFlowsTest extends BaseTest {
     @Test
     public void clickRandomTest() {
         seleniumDevHomePage.clickOnDocumentationLink();
-        documentationPage.clickOnRandomTab();
+
+    }
+
+    @Test
+    public void clickOnSponsorsPageTest() {
+        String pageTitle = "Sponsors";
+        seleniumDevHomePage.clickOnSponsorsPage();
+        Assert.assertTrue(getWebDriver().getCurrentUrl().contains("sponsors/"));
+        Assert.assertTrue(getWebDriver().getTitle().contains(pageTitle));
+    }
+
+    @Test
+    public void countSponsorsTest() {
+        seleniumDevHomePage.clickOnSponsorsPage();
+        int actual = sponsorsPage.numberOfSponsors();
+        int expected = 7;
+        Assert.assertEquals(expected, actual);
     }
 
 

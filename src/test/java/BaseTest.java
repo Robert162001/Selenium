@@ -6,11 +6,13 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import po.DocumentationPage;
 import po.SeleniumDevHomePage;
+import po.SponsorsPage;
 
 public class BaseTest {
 
     protected SeleniumDevHomePage seleniumDevHomePage;
     protected DocumentationPage documentationPage;
+    protected SponsorsPage sponsorsPage;
     private WebDriver webDriver;
 
     protected WebDriver getWebDriver() {
@@ -26,6 +28,7 @@ public class BaseTest {
         webDriver = new ChromeDriver(chromeOptions);
         seleniumDevHomePage = new SeleniumDevHomePage(webDriver);
         documentationPage = new DocumentationPage(webDriver);
+        sponsorsPage = new SponsorsPage(webDriver);
         seleniumDevHomePage.navigateTo();
     }
 
@@ -33,6 +36,4 @@ public class BaseTest {
     public void closeDriver() {
         webDriver.quit();
     }
-
-
 }

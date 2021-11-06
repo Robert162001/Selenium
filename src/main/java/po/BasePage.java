@@ -11,5 +11,4 @@ public class BasePage {
         WebElement webElement = new WebDriverWait(webDriver, 10000).until(ExpectedConditions.elementToBeClickable((locator)));
         webElement.click();
     }
-
 }
