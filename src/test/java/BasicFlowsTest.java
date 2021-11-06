@@ -37,7 +37,8 @@ public class BasicFlowsTest extends BaseTest {
     @Test
     public void clickRandomTest() {
         seleniumDevHomePage.clickOnDocumentationLink();
-
+        documentationPage.clickOnRandomTab();
+        Assert.assertTrue(documentationPage.isTabActive(documentationPage.getWhichTabWasClicked()));
     }
 
     @Test
@@ -51,7 +52,7 @@ public class BasicFlowsTest extends BaseTest {
     @Test
     public void countSponsorsTest() {
         seleniumDevHomePage.clickOnSponsorsPage();
-        int actual = sponsorsPage.numberOfSponsors();
+        int actual = sponsorsPage.getNumberOfSponsors();
         int expected = 7;
         Assert.assertEquals(expected, actual);
     }

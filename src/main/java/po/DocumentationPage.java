@@ -43,24 +43,25 @@ public class DocumentationPage extends BasePage {
 
     public boolean isTabActive(Tabs tab) {
         boolean isTabActive;
+        String ariaSelected = "aria-selected";
         switch (tab) {
             case JAVA:
-                isTabActive = webDriver.findElement(javaButton).getAttribute("aria-selected").equalsIgnoreCase("true");
+                isTabActive = webDriver.findElement(javaButton).getAttribute(ariaSelected).equalsIgnoreCase("true");
                 break;
             case PYTHON:
-                isTabActive = webDriver.findElement(pythonButton).getAttribute("aria-selected").equalsIgnoreCase("true");
+                isTabActive = webDriver.findElement(pythonButton).getAttribute(ariaSelected).equalsIgnoreCase("true");
                 break;
             case CSHARP:
-                isTabActive = webDriver.findElement(cSharpButton).getAttribute("aria-selected").equalsIgnoreCase("true");
+                isTabActive = webDriver.findElement(cSharpButton).getAttribute(ariaSelected).equalsIgnoreCase("true");
                 break;
             case RUBY:
-                isTabActive = webDriver.findElement(rubyButton).getAttribute("aria-selected").equalsIgnoreCase("true");
+                isTabActive = webDriver.findElement(rubyButton).getAttribute(ariaSelected).equalsIgnoreCase("true");
                 break;
             case JAVASCRIPT:
-                isTabActive = webDriver.findElement(javaScriptButton).getAttribute("aria-selected").equalsIgnoreCase("true");
+                isTabActive = webDriver.findElement(javaScriptButton).getAttribute(ariaSelected).equalsIgnoreCase("true");
                 break;
             case KOTLIN:
-                isTabActive = webDriver.findElement(kotlinButton).getAttribute("aria-selected").equalsIgnoreCase("true");
+                isTabActive = webDriver.findElement(kotlinButton).getAttribute(ariaSelected).equalsIgnoreCase("true");
                 break;
 
             default:

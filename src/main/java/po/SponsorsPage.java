@@ -10,7 +10,7 @@ public class SponsorsPage extends BasePage {
         this.webDriver = webDriver;
     }
 
-    public int numberOfSponsors() {
+    public int getNumberOfSponsors() {
         return webDriver.findElements(By.xpath("(//div[contains(@class, 'pt-4')])[1]/div")).size();
     }
 }
