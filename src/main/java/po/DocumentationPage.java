@@ -3,7 +3,6 @@ package po;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static utils.Helpers.generateRandomNumber;
@@ -23,15 +22,8 @@ public class DocumentationPage extends BasePage {
     private final By kotlinButton = locatorTab(5);
     private int whichTabWasClicked;
 
-    List<Tabs> tabsList = new ArrayList<>() {{
-        add(Tabs.JAVA);
-        add(Tabs.PYTHON);
-        add(Tabs.CSHARP);
-        add(Tabs.RUBY);
-        add(Tabs.JAVASCRIPT);
-        add(Tabs.KOTLIN);
-    }};
-
+    private static final List<Tabs> tabsList = List.of(Tabs.JAVA, Tabs.PYTHON, Tabs.CSHARP, Tabs.RUBY, Tabs.JAVASCRIPT,
+            Tabs.KOTLIN);
 
     public enum Tabs {
         JAVA, PYTHON, CSHARP, RUBY, JAVASCRIPT, KOTLIN
